@@ -1,0 +1,37 @@
+body{
+    background-image: url("/auth-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.container{
+    background-color: #2a1d1dc4;
+    padding: 100 100px;
+    width: 400px;
+    height:auto;
+    margin-left: 100px;
+    
+}
+
+input{
+    width: 300px;
+    height: 30px;
+    margin-top: 5px;
+  
+
+}
+
+#submit{
+  
+    background-color: #174F2A;
+     width: 300px;
+    height: 30px;
+    color:  #ffffff;
+
+}
+
+.label1{
+    color: #ffffff;
+    
+}

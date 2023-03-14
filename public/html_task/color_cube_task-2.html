@@ -1,0 +1,229 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: aquamarine;
+        }
+        tr,td{
+            border: 2px solid black;
+            border-collapse: collapse;
+            border-radius: 30%;
+            
+           
+            border-color: aqua;
+
+        }
+        #id1{
+            height: 300px;
+            width: 300px;
+            border: 2px double rgb(180, 6, 180);
+           
+        }
+        h1{
+            text-align: center;
+            color: rgb(80, 20, 221);
+            border: 2px double rebeccapurple;
+            padding: 5px;
+            margin: 5px;
+
+        }
+        #ctr1{
+            text-align: center;
+            font-size: larger;
+        }
+        #time1{
+            /* border-radius: 5px ;
+            border: 5px solid rebeccapurple; */
+            font-size: larger;
+            margin: auto;
+        }
+        #id12{
+            text-align: center;
+            font-size: large;
+            font-weight: bold;
+
+        }
+        #id13{text-align: center;
+            font-size: large;
+            font-weight: bold;
+        color: red;}
+        #score{
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
+            font-style: normal;
+        }
+       input{
+        font-weight: bold;
+        font-size: larger;
+       }
+       table{
+        margin-left: auto;
+        margin-right: auto;
+       }
+       .home_tag{
+        background-color: #174F2A;
+         width: 300px;
+        height: 30px;
+        color:  #ffffff;
+       padding: 20 25px;
+       border-radius: 10px;
+        text-decoration: none;
+       }
+    </style>
+
+
+
+</head>
+<body>
+    <header><center><div><a class="home_tag"href="http://localhost:9002/tasklist">Back To Task Page</a></div></center></header>
+    <br><br>
+
+    <h1><b>Color Cube Game </b></h1><br>
+
+    <div id="time1"><center><b>Timer</b></center></div>
+    
+    <p id="id12"> </p><br>
+    <p id="id13"></p>
+
+    <div id="ctr1"><b>Score</b></div>
+    <p id="score"></p><br>
+    
+    <center><input type="button" value="START GAME " id="bt1" onclick="naresh_func();timer()"></center>
+    <table id="id1">
+        <!-- <tr><td  onclick=" naresh_func()"></td>
+            <td  onclick=" naresh_func()"></td>
+            <td  onclick=" naresh_func()"></td>
+       </tr> -->
+
+
+    </table>
+    <script>
+        var naresh_c = 2;
+        var naresh_countr=0;
+        
+        function naresh_func(){
+            var naresh_randcol=Math.floor(Math.random() * naresh_c) + 1;
+            var naresh_randrow=Math.floor(Math.random() * naresh_c) + 1;
+            console.log(naresh_randcol)
+            console.log(naresh_randrow)
+           if(naresh_randrow>=10){
+            naresh_randrow=3;
+           }
+           
+                    
+            var naresh_s="";
+            var naresh_colr=["red","blue","green","yellow","violet","orange","gray","tomato","cadetBlue","brown"];
+            // var x=red;
+
+            for( let naresh_i=1;naresh_i<=naresh_c;naresh_i++){
+                naresh_s+="<tr>";
+                    for(naresh_j=1;naresh_j<=naresh_c;naresh_j++){
+                        if( naresh_randrow==naresh_i && naresh_randcol==naresh_j  ){
+                            naresh_s+="<td  onclick='naresh_func()'  style='background-color:"+naresh_colr[naresh_randrow]+"; opacity: 50%'> </td>";
+                            naresh_countr=naresh_countr +1;
+                            document.getElementById("score").innerHTML=naresh_countr;
+                            // if(randrow>10){
+                            //     s+="<td  onclick='naresh_func()'  style='background-color:"+naresh_colr[randrow-5]+"; opacity: 80%'> </td>";
+                            // }
+                        }
+                        else{
+                        naresh_s+="<td style='background-color:"+naresh_colr[naresh_randrow]+"; pointer-events:none;'> </td>";
+
+                      }
+
+                    }
+                    naresh_s+="</tr>";
+                    } 
+                     document.getElementById("id1").innerHTML =naresh_s;
+
+                     if(naresh_c<=17){
+                     naresh_c=naresh_c+1;
+                    }
+                     else{
+                        return false;
+                     }
+
+                    //  var reset= tbl.innerHTML="";
+                    //  setTimeout(reset,60000);
+                    // document.getElementById("bt1").style.visibility = "hidden";
+                  }
+
+function timer(){
+
+let seconds = 30;
+const makeIteration = () => {
+console.clear();
+if (seconds >=10) {
+document.getElementById("id12").innerHTML=seconds;
+
+//console.log(seconds);
+setTimeout(makeIteration, 1000); // 1 second waiting
+}
+else if(seconds<10 && seconds>0){
+    document.getElementById("id12").innerHTML=seconds+ " Seconds Remaining";
+    document.getElementById("id12").style.color = "red";
+    setTimeout(makeIteration, 1000); 
+}
+else if(seconds ==0)
+{
+    document.getElementById("id12").innerHTML="Finished..!";
+    alert("Game Over...");
+    document.getElementById("id1").innerHTML=null
+   
+    var naresh_rm=document.getElementById("id1");
+    naresh_rm.remove();
+    location.reload();
+    document.getElementById("id1").innerHTML="";
+    setTimeout(test1,20500);
+    document.getElementById("score").innerText="0";
+}
+else{
+    
+    // setTimeout(test1,5500);
+   
+}
+seconds -= 1;
+}
+
+setTimeout(makeIteration, 1000);
+//var time= document.getElementById("timer").innerHTML=seconds
+}
+
+
+      
+        
+//             function getRandomItem(arr) {
+
+// // get random index value
+// const randomIndex = Math.floor(Math.random() * arr.length);
+
+// // get random item
+// document.getElementById(randomIndex).style.opacity=0.6;
+
+// return item;
+// }
+
+
+
+
+        
+//         const changeColor = document.getElementById('changeColor'),
+//       colors      = ['red', 'green', 'blue'];
+// let   colorIndex  = 0;
+
+// changeColor.addEventListener('click', () => {
+//   document.body.style.backgroundColor = colors[colorIndex];      
+//   colorIndex = (colorIndex + 1) % colors.length
+// });
+       
+    </script>
+    <!-- <td style="pointer-events: none;">
+
+    </td> -->
+</body>
+</html>

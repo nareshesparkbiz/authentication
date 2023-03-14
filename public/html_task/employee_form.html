@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Application </title>
+    <link rel="stylesheet " href="/html_task/employee_form.css">
+</head>
+<body>
+  <header><center><div><a class="home_tag"href="http://localhost:9002/tasklist">Back To Task Page</a></div></center></header>
+    <script src="employee_form.js"></script>
+    <fieldset>
+        <legend>Application Form</legend>
+        <form action="receive.html" onsubmit="return validatefun()">
+            <label for="name1"> <b> First Name</b> </label>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="name2"> <b>Last Name</b> </label>*<br>
+        <input type="text" name="name1" id="name1" required>
+        <input type="text" name="name2" id="name2" required><br><br>
+        <label for="mail1"><b>Email</b></label>*<br>
+        <input type="email" name="mail1" id="mail1">
+        <br><br>
+        <label for="url1"><b>Portfolio Website</b></label>
+      <br>
+      <input type="url" name="url1" id="url1"><br>
+      <br>
+      <label for="paf1"><b>Position You are Applying For </b></label>*
+      <select id="paf1">
+        <option value="1">Java Developer</option>
+        <option value="2">Python Developer</option>
+        <option value="3">.Net Developer</option>
+        <option value="4">NodeJs </option>
+        <option value="5">React Js Developer</option>
+      </select> <br><br>
+      <label for="sal1"><b>Salary Requirements</b></label>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <label for="star1"><b>When Can You Start</b></label><br>
+      <input type="text" name="sal1" id="sal1" required>
+      <input type="date" name="sal1" id="sal1"><br><br>
+      <label for="num1"><b>Phone</b></label><br>
+      <input type="text" name="num1" id="num1" required><br><br>
+      <label for="rad1"><b>Are you Willing to Relocate ?</b></label><br>
+      <label >YES</label>
+      <input type="radio" name="rad1" id="r1">
+      <label >NO</label>
+      <input type="radio" name="rad1" id="r2">
+      <label >NOT SURE</label>
+      <input type="radio" name="rad1" id="r3"><br><br>
+      <label for="exp1"><b>Experience </b></label>&nbsp;
+      <select name="exp1" id="exp1">
+        <option value="11">Fresher</option>
+        <option value="12">1 Year</option>
+
+        <option value="13">2 Year</option>
+
+        <option value="14">3 Year</option>
+
+      </select><br><br>
+      <label for="las1"><b>Last Company You Worked For </b></label><br>
+      <input type="text" name="las1" id="las1" maxlength="50"><br><br>
+
+      <label for="text1"><b>References/Comments/Questions </b></label><br>
+      <textarea name="text1" id="text1" cols="30" rows="10"></textarea><br><br>
+      <input type="submit" value="Send Application">
+
+
+
+    </form>
+    </fieldset>
+</body>
+</html>

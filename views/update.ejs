@@ -1,0 +1,17 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Please activated Your Account For this email <%=email%> </h1>
+    <p>You are not activate your account for the above email Please activate your account please click on below button. </p>
+    <form action="/update" method="get">
+        <input type="hidden"  name="email1" value="<%=email%>">
+        <input type="submit" value="Activate Youe Account" name="submit">
+    </form>
+   
+</body>
+</html>

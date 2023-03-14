@@ -1,0 +1,290 @@
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table,
+        tr,
+        td,
+        th {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+
+
+        #container {
+            width: fit-content;
+            /* display: flex;
+            flex-direction: row; */
+            border: 2px solid;
+        }
+
+        td {
+            background-color: bisque;
+            border-style: outset;
+        }
+
+        a {
+
+            font-size: xx-large;
+            margin-left: 10px;
+        }
+
+        #record {
+            font-weight: bold;
+            font-size: large;
+            color: red;
+            font-style: normal;
+            text-decoration: underline;
+        }
+
+
+        .one h1 {
+            text-align: center;
+            text-transform: uppercase;
+            padding-bottom: 5px;
+        }
+
+        .one h1:before {
+            width: 28px;
+            height: 5px;
+            display: block;
+            content: "";
+            position: absolute;
+            bottom: 3px;
+            left: 50%;
+            margin-left: -14px;
+            
+        }
+
+        .one h1:after {
+            width: 100px;
+            height: 1px;
+            display: block;
+            content: "";
+            position: relative;
+            margin-top: 25px;
+            left: 50%;
+            margin-left: -50px;
+            background-color: #b80000;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="one">
+        <h1>Search Here</h1>
+    </div> <!-- search data from table  -->
+
+    <div id="record"><p >Total Records : <%=count_record%>
+    </p></div>
+    <form action="/task6_search">
+        <input type="search" placeholder="Search Here" name="search" value="<%=searched%>">
+        <select name="select1" id="select">
+            <option value="AND" name="AND">AND</option>
+            <option value="OR" name="OR">OR</option>
+
+        </select>
+
+        <input type="submit" value="Go">
+
+    </form>
+
+    <table border="2">
+        <tr>
+            <th>Delimeters</th>
+            <th>Fields name</th>
+        </tr>
+        <tr>
+            <td>^</td>
+            <td>First Name</td>
+        </tr>
+        <tr>
+            <td>$</td>
+            <td>Last Name</td>
+        </tr>
+        <tr>
+            <td>_</td>
+            <td>City</td>
+        </tr>
+        <tr>
+            <td>~</td>
+            <td>contact</td>
+        </tr>
+        <tr>
+            <td>/</td>
+            <td>Pincode</td>
+        </tr>
+    </table>
+
+
+    <h1>Data Enter successful</h1>
+    <table>
+        <tr>
+            <th><input type="checkbox" name="all_check" id="all_check" onclick="selectall()"></th>
+            <th>S_ID</th>
+            <th>first_name</th>
+            <th>last_name</th>
+            <th>designation</th>
+            <th>Address 1</th>
+            <th>Address 2</th>
+            <th>City</th>
+            <th>Email</th>
+            <th>Pincode</th>
+            <th>Date Of Birth</th>
+            <th>Gender</th>
+            <th>Phone number</th>
+            <th>State</th>
+            <th>Relation Status</th>
+            <th>Created date</th>
+            <th>Delete</th>
+
+        </tr>
+
+        <% for( let i=0;i<data.length;i++) {%>
+            <tr id="<%=data[i]['id']%>">
+                <th><input type="checkbox" name="delete_id" id="<%=data[i]['id']%>" value="<%=data[i]['id']%>"> </th>
+                <td>
+                    <%=data[i]['id']%>
+                </td>
+                <td>
+                    <%=data[i]['first_name']%>
+                </td>
+                <td>
+                    <%=data[i]['last_name']%>
+                </td>
+                <td>
+                    <%=data[i]['designation']%>
+                </td>
+                <td>
+                    <%=data[i]['address1']%>
+                </td>
+                <td>
+                    <%=data[i]['address2']%>
+                </td>
+                <td>
+                    <%=data[i]['city']%>
+                </td>
+                <td>
+                    <%=data[i]['email']%>
+                </td>
+                <td>
+                    <%=data[i]['pincode']%>
+                </td>
+                <td>
+                    <%=data[i]['dob']%>
+                </td>
+                <td>
+                    <%=data[i]['gender']%>
+                </td>
+                <td>
+                    <%=data[i]['phone_number']%>
+                </td>
+                <td>
+                    <%=data[i]['state']%>
+                </td>
+                <td>
+                    <%=data[i]['relation_status']%>
+                </td>
+                <td>
+                    <%=data[i]['create_date']%>
+                </td>
+                <td><i class="fa fa-trash pointer" aria-hidden="true" id="<%=data[i]['id']%>"
+                        onclick="delete_data(this)"></i></td>
+
+
+            </tr>
+
+
+            <% } %>
+
+    </table>
+    <span style="cursor: pointer;" onclick="delete_all()">DELETE ALL </span>
+
+
+    <script>
+
+        let flag = 0;
+        function selectall() {
+            var allcheck = document.getElementsByName("delete_id");
+            if (flag == 0) {
+                for (let i = 0; i < allcheck.length; i++) {
+                    if (allcheck[i].checked != true) {
+                        allcheck[i].checked = true;
+                    }
+                }
+                flag = 1;
+                return;
+            }
+            if (flag == 1) {
+                for (let i = 0; i < allcheck.length; i++) {
+                    if (allcheck[i].checked == true) {
+                        allcheck[i].checked = false;
+                    }
+                }
+                flag = 0;
+                return;
+            }
+            return false;
+        }
+
+        var arr = [];
+
+        async function delete_all() {
+
+
+            let selcheck = []
+
+            let allcheck = document.getElementsByName("delete_id");
+            console.log(allcheck)
+
+            for (let i = 0; i < allcheck.length; i++) {
+                if (allcheck[i].checked) {
+                    selcheck.push(allcheck[i].value);
+                }
+            }
+
+            console.log(selcheck);
+            if (confirm("Do You want to delete all selected records?")) {
+                for (i = 0; i < selcheck.length; i++) {
+                    document.getElementById(`${selcheck[i]}`).style.display = "none";
+                }
+                const ans = await fetch('/deleteall?id=' + selcheck + '');
+            }
+
+        }
+        function delete_data(x) {
+
+
+            var d_id = x.id;
+
+
+
+
+            fetch('/delete?id=' + d_id + '').then((response) => {
+                return response.json()
+            }).then((responsedata) => {
+
+
+                var html = "";
+                let a = confirm("Do you want to delete the row of id=" + d_id);
+
+                if (a == 1) {
+                    document.getElementById(d_id).style.display = "none";
+                }
+            });
+
+        }
+    </script>
+</body>
+
+</html>

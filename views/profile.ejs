@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/profile.css">
+</head>
+<body>
+    <header></header>
+    <div class="sitepage">
+        <section class="section1">
+            <div class="container">
+                <div class="container1">
+                    <center><div><a class="home_tag"href="http://localhost:9002/home">Back To Home Page</a></div></center>
+                    <h1>Profile Page</h1>
+                    <form action="/profile_update" method="post">
+                        <div><label for="username">Username</label>
+                        <input type="text" name="username" id="username" value="<%=token_data['username']%>"></div>
+                        <div class="prof"><label for="email">Email</label>
+                        <input type="email" name="email" id="email" value="<%=token_data['email']%>"></div>
+                        <div class="prof"><label for="activate">Account Activated</label>
+                            <%if(token_data['isactivated']==1){%>
+                        <input type="text" name="active" id="active" value="Yes" disabled>
+                         <%}%>
+                         <%if(token_data['isactivated']==0){%>
+                            <input type="text" name="active" id="active" value="NO" disabled>
+                            <%}%>
+                        
+                        </div>
+                        <div><input type="submit" name="submit" id="submited" value="update"></div>
+                    </form>
+                </div> 
+            </div>
+        </section>
+    </div>
+
+    <footer></footer>
+</body>
+</html>

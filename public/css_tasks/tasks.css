@@ -1,0 +1,54 @@
+body{
+     background-image: url("/auth-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.section1{
+    background-color: #2a1d1dc4;
+    padding: 100 100px;
+    width: auto;
+    height:auto;
+    
+}
+
+.container1{  background-color: #fdfcfcc4;
+    padding: 40px;
+
+}
+table,td,tr{
+    border-collapse: collapse;
+}
+
+td{
+    text-align: center;
+    padding: 25 20px;
+    width: 1%;
+  
+   
+
+}
+
+.task{
+    text-decoration: none;
+    background-color: #174F2A;
+   
+    padding: 4px;
+    color:  #ffffff;
+}
+caption{
+    font-size: 40px;
+    color: violet;
+}
+
+.home_tag{
+    background-color: #174F2A;
+     width: 300px;
+    height: 30px;
+    color:  #ffffff;
+   padding: 20 25px;
+   border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    
+   }

@@ -1,0 +1,71 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="/style.css ">
+</head>
+
+<body>
+    
+</body>
+<div class="sitepage">
+    <header></header>
+    <div class="bodypage">
+        <div class="row">
+          
+        <div class="column11">
+            <div class="container">
+                <div class="formpage">
+                    <div class="logo">
+                        <img src="/logo.svg" alt="logo">
+                    </div>
+                    <div class="head1"><h2>Welcome Back!</h2></div>
+                    <div class="container1">
+                        <form action="/register" method="post" >
+                            <label for="name" class="label1">Name</label>
+                            <div class="form1">
+                                <input type="text" name="name" id="name" onchange="validatename()">
+                                <p id="name1"></p>
+                            </div>
+                           
+    
+                            <label for="email" class="label1">Email</label>
+                            <div class="form1"><input type="email" name="email" id="email"  onchange="validateemail()">
+                                <p id="email1"></p>
+                            </div>
+
+                            <label for="pasw" class="label1">Password</label>
+                            <div class="form1"><input type="password" name="pasw" id="pasw" onchange="pwdverify()" >
+                                <p id="password1"></p></div>
+                          
+                            <label for="repasw" class="label1">Confirm Password</label>
+                            <div class="form1"><input type="password" name="repasw" id="repasw"  onchange="validatepass()" >
+                                <p id="password1"></p></div>
+                          
+                            <div class="submit1"><input type="submit" id="submit" value="Sign up" disabled></div>
+    
+                        
+                    </form>
+                    <div class="container2">
+                        <div class="column1"><p class="container2p">Already have an account?</p></div>
+                        <div class="column2"><a href="/login" class="container2a">Sign In</a></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        </div>
+        <div class="column12">  
+            <div class="image1"><img src="/bottom-logo.png" alt="logo"></div>
+    </div> 
+       
+    </div>
+    
+</div>
+<script src="/script.js"></script>
+
+</html>

@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/forgot_pass.css">
+</head>
+<body>
+    <div class="sitepage">
+        <header></header>
+        <section class="section1">
+            <div class="container">
+                <form action="/forgot_pass" method="post" onsubmit="return validate()">
+                    <div><label class="label1" for="label1">Username :</label><input type="text" name="uname" id="uname"></div>
+                    <div><label  class="label1" for="label1">Enter Email:</label><input type="email" name="email" id="email" onchange="check_validate()"></div>
+                    <div><p id="err"></p></div>
+                    <div><label class="label1" for="label1">Enter New Password :</label><input type="password" name="newpas" id="newpas"></div>
+                    <input type="submit" name="submit" value="submit" id="submit">
+            
+                </form>
+            </div>
+        </section>
+    </div>
+   
+
+    <script>
+        async function check_validate(){
+            let uname=document.getElementById("uname").value;
+            let email=document.getElementById("email").value;
+            await fetch("/check_pass?uname="+uname+"&email="+email+"").then((response)=>{
+                return response.json()
+            }).then((resdata)=>{
+                console.log(resdata+"hiiiiiii");
+
+                if(resdata=="true"){
+                    document.getElementById("err").innerHTML=null;
+
+                }
+                else{
+                    document.getElementById("err").style.color="red";
+                    document.getElementById("err").innerHTML="Username or email are not exists"
+                }
+            } )   
+        }
+
+        function validate(){
+            var pass=document.getElementById("newpas").value;
+            var result=document.getElementById("err").value;
+            console.log(result)
+            if(result==undefined){
+                console.log("hiiwewe")
+                return true;
+            }
+            else{
+                console.log("jjjjj")
+                return false}
+        }
+                
+    </script>
+
+    
+
+</body>
+</html>

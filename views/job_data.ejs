@@ -1,0 +1,560 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            padding-right: 50px;
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        #container1 {
+            margin-right: 300px;
+
+        }
+
+        tr,
+        td {
+            padding: 5px;
+        }
+
+        body {
+            background: linear-gradient(45deg, greenyellow, dodgerblue);   
+           
+             align-items: center;
+              height: 100vh;
+            background-size: cover;
+
+        }
+
+        #id123 {
+            background-color: antiquewhite;
+            opacity: 1;
+            position: relative;
+            padding: 50px 50px;
+            
+              border-radius: 10px;
+
+
+
+        }
+
+        #tbl1:hover {
+            opacity: 1;
+        }
+        input{
+              border-style: inset;
+              background-color: aqua;
+        }
+        #job{
+  font-size: 2em;
+  border-left: 5px solid dodgerblue;
+  padding: 10px;
+  color: #000;
+  letter-spacing: 5px;
+  margin-bottom: 60px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+fieldset{
+    border-radius: 10px;
+    font-weight: bold;
+    font-style: italic;
+}
+#submit{
+padding: 5px;
+padding-left: 20px;
+padding-right: 20px;
+color:white;
+border-radius: 5px;
+margin: 10px;
+font-size: large;
+font-weight: bold;
+background-color: blue;
+}
+.home_tag{
+        background-color: #174F2A;
+         width: 300px;
+        height: 30px;
+        color:  #ffffff;
+       padding: 20 25px;
+       border-radius: 10px;
+        text-decoration: none;
+       }
+
+
+    </style>
+
+    <script>
+        function enabled(x){
+            var arr=x.split(',');
+            console.log(arr)
+            var langlength = parseInt(arr[0]);
+            
+            var techlength = parseInt(arr[1]);
+            console.log(techlength)
+            for(i=1;i<= techlength;i++){
+                var techlang = 'techlang'+i;
+                document.getElementById(techlang).disabled=false;
+            }
+            for(i=1;i<=langlength;i++){
+                var lang='language'+i;
+                document.getElementById(lang).disabled=false;
+            }
+            return true
+        }
+    </script>
+</head>
+
+<body>
+    <header><center><div><a class="home_tag"href="http://localhost:9002/tasklist">Back To Task Page</a></div></center></header>
+    <center>
+    <div id="id123">
+        <h1 id="job">Job Application Form </h1>
+        <% var langlen=data['languages'].length%>
+        <% var techlen=data['technologies'].length%>
+
+        <form action="/form" method="post" onsubmit="enabled('<%- langlen %>,<%- techlen %>')">
+            <fieldset>
+                <legend>Basic Detail </legend>
+                <table id="tbl1">
+
+                    <tr>
+                        <td><b><label for="name1">First Name</label></b></td>
+                        <td><input type="text" name="name1" id="name1" placeholder="Enter Your name"></td>
+                        <td></td>
+                        <td><b><label for="name2">Last Name </label></b></td>
+                        <td><input type="text" name="name2" id="name2" placeholder="Enter your Surname"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="des1"><b>Designation</b></label></td>
+                        <td><input type="text" name="des1" id="des1"></td>
+                        <td></td>
+                        <td><label for="add1"><b>Address 1</b></label></td>
+                        <td><input type="text" name="add1" id="add1"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email1"><b>Email</b></label></td>
+                        <td><input type="email" name="email1" id="email1"></td>
+                        <td></td>
+                        <td><label for="add2"><b>Address 2</b></label></td>
+                        <td><input type="text" name="add2" id="add2"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="con1"><b>Contact</b></label></td>
+                        <td><input type="text" name="con1" id="con1"></td>
+                        <td></td>
+                        <td><label for="city"><b>City</b></label></td>
+                        <td><select name="city" id="city" >
+                            <option value=""> </option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td><b><label for="gen1">Gender</label></b></td>
+                        <td><select name="gender" id="gender">
+                                <% for( let i=0;i<data['gender'].length;i++){%>
+                                    <option value="<%=data['gender'][i]['option_value']%>">
+                                        <%=data['gender'][i]['option_value']%>
+                                    </option>
+                                    <% } %>
+                            </select>
+                        </td>
+                        <td></td>
+                        <td><b><label for="state">State</label></b></td>
+                        <td>
+                            <select name="state" id="stat1" onchange="changeevent(this)">
+                                <option value=""></option>
+                                <% for(let i=0;i<data['state'].length;i++) { %>
+                                    <option value="<%=data['state'][i]['state_name']%>">
+                                        <%=data['state'][i]['state_name']%>
+                                    </option>
+                                    <%}%>
+                            </select>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td><b><label for="zip1">Zipcode</label></b></td>
+                        <td><input type="text" name="zip1" id="zip1"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><b><label for="relation">Relationship Status</label></b></td>
+                        <td><select name="relation" id="rel1">
+                                <% for(let i=0;i<data['relation'].length;i++){ %>
+                                    <option value="<%=data['relation'][i]['option_value']%>">
+                                        <%=data['relation'][i]['option_value']%>
+                                    </option>
+                                    <%}%>
+                            </select></td>
+                        <td></td>
+                        <td><b><label for="dob">Date Of Birth</label></b></td>
+                        <td><input type="date" name="dob" id="dob1"></td>
+
+                    </tr>
+
+                </table>
+            </fieldset>
+            <br><br><br>
+            <fieldset>
+                <legend>Education Detail</legend>
+
+                <br><br>
+                <tr>
+                    <td><label for="course">Course </label></td>
+                    <td><select name="course" id="course">
+                            <% for(let i=0;i<data['course'].length;i++){%>
+                                <option value="<%=data['course'][i]['option_value']%>">
+                                    <%=data['course'][i]['option_value']%>
+                                </option>
+                                <% } %>
+                        </select></td>
+                    <td><label for="bd1"><b>Name Of Board</b></label></td>
+                    <td><input type="text" name="board" id="bd1"></td>
+                    <td><label for="year"><b>Passing Year</b></label></td>
+                    <td><input type="text" name="year" id="year"></td>
+                    <td><label for="percen"><b>Percentage</b></label></td>
+                    <td><input type="text" name="percen" id="percen"></td>
+                    <td><input type="button" value="+" onclick="naresh_click()"></td>
+                </tr><br>
+                <hr>
+                <div id="p1"></div>
+                <div id="p2"></div>
+                <div id="p3"></div>
+
+            </fieldset><br><br><br>
+
+            <fieldset>
+                <table id="tbl3">
+
+                    <legend>Work Experience</legend>
+                    <tr id="id1">
+                        <td><label for="comp1"><b>Company name</b></label></td>
+                        <td><input type="text" name="comp1" id="comp1"></td>
+                        <td><label for="dest1"><b>Designation</b></label></td>
+                        <td><input type="text" name="dest1" id="des1"></td>
+                        <td><label for="start1"><b>From</b></label></td>
+                        <td><input type="date" name="start1" id="start1"></td>
+                        <td><label for="end1"><b>To</b></label></td>
+                        <td><input type="date" name="end1" id="end1"></td>
+                        <td><input type="button" value="'+" onclick="work()"></td>
+                    </tr>
+                    <tr id="id2"></tr>
+                    <tr id="id3"></tr>
+
+                </table>
+            </fieldset><br><br><br>
+            <div id="container">
+                <div id="container1">
+                    <fieldset>
+                        <legend>Language Known</legend>
+                        <table>
+                            <% for(let i=0;i<data['languages'].length;i++) {%>
+                                <tr>
+
+                                    <td>
+                                        <input type="checkbox" name="lang<%=i+1%>"
+                                            id="language<%=i+1%>" value="<%=data['languages'][i]['option_value']%>" onclick="check_validate_lan(this)">
+                                    </td>
+                                    <td>
+                                        <label for="<%=data['languages'][i]['option_value']%>">
+                                            <%=data['languages'][i]['option_value']%>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <input type="checkbox" name="read" class="<%=data['languages'][i]['option_value']%>"
+                                            id="<%=data['languages'][i]['option_value']%>1" value="<%=data['languages'][i]['option_value']%>" disabled>
+                                    </td>
+                                    <td>
+                                        <label for="<%=data['languages'][i]['option_value']%>1">Read</label>
+                                    </td>
+
+
+                                    <td>
+                                        <input type="checkbox" name="write" class="<%=data['languages'][i]['option_value']%>"
+                                            id="<%=data['languages'][i]['option_value']%>2" value="<%=data['languages'][i]['option_value']%>" disabled>
+                                    </td>
+                                    <td>
+                                        <label for="<%=data['languages'][i]['option_value']%>2">Write</label>
+                                    </td>
+
+                                    <td>
+                                        <input type="checkbox" name="speak"  class="<%=data['languages'][i]['option_value']%>" id="<%=data['languages'][i]['option_value']%>3" value="<%=data['languages'][i]['option_value']%>" disabled>
+                                    </td>
+                                    <td>
+                                        <label for="<%=data['languages'][i]['option_value']%>3">Speak</label>
+                                    </td>
+
+                                </tr>
+                                <% }%>
+
+
+
+                        </table>
+                    </fieldset>
+                </div>
+
+                <div id="container2">
+                    <fieldset>
+                        <legend>
+                            Technologies You known
+                        </legend>
+                        <table>
+
+                            <% for(let i=0;i<data['technologies'].length;i++) {%>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="techlang<%=i+1%>" id="techlang<%=i+1%>" value='<%=data["technologies"][i]["option_value"]%>' onclick="check_validate_tech(this)"/>
+                                    </td>
+
+                                    <td>
+                                        <label for="<%=data['technologies'][i]['option_value']%>">
+                                            <%=data['technologies'][i]['option_value']%>
+                                        </label>
+                                    </td>
+
+
+                                    <td>
+                                        <input type="radio" name="<%=data['technologies'][i]['option_value']%>"
+                                            id="<%=data['technologies'][i]['option_value']%>1" value="Beginner" disabled>
+                                    </td>
+                                    <td>
+                                        <label for="<%=data['technologies'][i]['option_value']%>1">Beginner</label>
+                                    </td>
+
+
+                                    <td>
+                                        <input type="radio" name="<%=data['technologies'][i]['option_value']%>"
+                                            id="<%=data['technologies'][i]['option_value']%>2" value="Mediator" disabled>
+                                    </td>
+                                    <td>
+                                        <label for="<%=data['technologies'][i]['option_value']%>2">Mediator</label>
+                                    </td>
+
+
+                                    <td>
+                                        <input type="radio" name="<%=data['technologies'][i]['option_value']%>"
+                                            id="<%=data['technologies'][i]['option_value']%>3" value="Expert"disabled>
+                                    </td>
+                                    <td>
+                                        <label for="<%=data['technologies'][i]['option_value']%>3">Expert</label>
+                                    </td>
+
+
+                                </tr>
+                                <% } %>
+                        </table>
+                    </fieldset>
+                </div>
+            </div>
+            <fieldset>
+                <table id="tbl5">
+
+                    <legend>References Contact </legend>
+                    <tr>
+                        <td><label for="rname1"><b>Name</b></label></td>
+                        <td><input type="text " name="rname1" id="rname1"></td>
+                        <td><label for="rcont1"><b>Contact </b></label></td>
+                        <td><input type="text" name="rcont1" id="rcont1"></td>
+                        <td><label for="rel1"><b>Relation </b></label></td>
+                        <td><input type="text " name="rel1" id="rel1"></td>
+                        <td><input type="button" value="+" onclick="reference()"></td>
+                    </tr>
+                    <tr id="ref3"></tr>
+                    <tr id="ref4"></tr>
+
+                    <tr id="ref5"></tr>
+
+
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    Preferences
+                </legend>
+                <table>
+                    <tr>
+                        <td><label for="pref1"><b>Prefered location </b></label></td>
+                        <td><select name="pref_location" id="pref1">
+                                <% for( i=0;i<data['pref_location'].length;i++){%>
+
+                                    <option value="<%=data['pref_location'][i]['option_value']%>">
+                                        <%=data['pref_location'][i]['option_value']%>
+                                    </option>
+                                    <% } %>
+
+                            </select></td>
+                        <td><label for="notice"><b>Notice Period</b></label></td>
+                        <td><input type="text" name="notice" id="notice"></td>
+                        <td><label for="dep1"><b>Department</b></label></td>
+                        <td><select name="dep1" id="dep1">
+                                <% for(i=0;i<data['department'].length;i++){%>
+                                    <option value="<%=data['department'][i]['option_value']%>">
+                                        <%=data['department'][i]['option_value']%>
+                                    </option>
+
+                                    <% }%>
+                            </select></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><label for="expec1"><b>Expected CTC</b></label></td>
+                        <td><input type="text " name="expec1" id="expec1"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><label for="crctc1"><b>Current CTC </b></label>
+                        </td>
+                        <td><input type="text " name="crctc1" id="crctc1"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </fieldset>
+         <center><input type="submit" value="Submit" id="submit" style="margin: left 50px;margin: right 10px;"></center>   
+        </form>
+
+
+
+
+
+        <script>
+            var s = "";
+            var clk = 1;
+            var clk1 = 1;
+
+            function naresh_click() {
+
+                if (clk == 1) {
+                    s += " <br> <br><tr><td><label for='course'>Course</label></td><td><select name='course' id='course'> <% for(let i=0;i<data['course'].length;i++){%> <option value='<%=data['course'][i]['option_value']%>'><%=data['course'][i]['option_value']%></option>  <% } %>  </select></td><td><label for='board'><b>Name Of Board</b></label></td><td>&nbsp;&nbsp;&nbsp;<input type='text' name='board' id='bd'></td><td><label for='year'><b>Passing Year</b></label></td><td><input type='text' name='year' id='year1'></td><td><label for='percen1'><b>Percentage</b></label></td><td><input type='text' name='percen' id='percen1'></td><td><input type='button' value='+' onclick='naresh_click()'></td></tr><br><hr>";
+                    document.getElementById('p1').innerHTML = s;
+                }
+                if (clk == 2) {
+                    s += "<tr><br><br>  <td><label for='course'>Course</label></td><td><select name='course' id='course'> <% for(let i=0;i<data['course'].length;i++){%> <option value='<%=data['course'][i]['option_value']%>'><%=data['course'][i]['option_value']%></option>  <% } %>  </select></td><td><label for='university'><b>University </b></td><td><input type='text' name='board' id='university1'></td><td><label for='year'><b>Passing Year </b></label></td><td><input type='text' name='year' id='year2'></td><td><label for='percen'><b>Percentage </b></label></td><td><input type='text' name='percen' id='percen2'></td><td><input type='button' value='+' onclick='naresh_click()'></td></tr><br><hr>";
+                    document.getElementById('p2').innerHTML = s;
+                }
+                if (clk == 3) {
+                    s += "<br><br><tr><td><label for='course'>Course</label></td><td><select name='course' id='course'> <% for(let i=0;i<data['course'].length;i++){%> <option value='<%=data['course'][i]['option_value']%>'><%=data['course'][i]['option_value']%></option>  <% } %>  </select></td><td><label for='university'><b>University </b></td><td><input type='text' name='board' id='university2'></td><td><label for='year'><b>Passing Year </b></label></td><td><input type='text' name='year' id='year3'></td><td><label for='percen'><b>Percentage </b></label></td><td><input type='text' name='percen' id='percen3'></td><td><input type='button' value='+' onclick='naresh_click()'></td></tr><br>";
+                    document.getElementById('p3').innerHTML = s;
+                }
+                if (clk > 3) {
+                    return false;
+                }
+                s = "";
+                clk = clk + 1;
+
+
+              
+            }
+
+            function work() {
+                if (clk1 == 1) {
+                    s = " <td><label for='comp2'><b>Company name</b></label></td><td><input type='text' name='comp2' id='comp2'></td><td><label for='des2'><b>Designation</b></label></td><td><input type='text' name='des2' id='des2'></td><td><label for='start2'><b>From</b></label></td> <td><input type='date' name='start2' id='start2'></td><td><label for='end2'><b>To</b></label></td><td><input type='date' name='end2' id='end2'></td><td><input type='button' value='+' onclick='work()'></td>"
+                    document.getElementById('id2').innerHTML = s;
+                }
+                if (clk1 == 2) {
+                    s = " <td><label for='comp3'><b>Company name</b></label></td><td><input type='text' name='comp3' id='comp3'></td><td><label for='des3'><b>Designation</b></label></td><td><input type='text' name='des3' id='des3'></td><td><label for='start3'><b>From</b></label></td> <td><input type='date' name='start3' id='start3'></td><td><label for='end3'><b>To</b></label></td><td><input type='date' name='end3' id='end3'></td><td><input type='button' value='+' onclick='work()'></td>"
+                    document.getElementById('id3').innerHTML = s;
+                }
+                else {
+                    return false;
+                }
+
+                s = "";
+                clk1 = clk1 + 1;
+            }
+
+            var clk3 = 1;
+            function reference() {
+                var t = "";
+                if (clk3 == 1) {
+                    t = " <tr><td><label for='rname2'><b>Name</b></label></td> <td><input type='text' name='rname2' id='rname2'></td><td><label for='rcont2'><b>Contact </b></label></td><td><input type='text' name='rcont2' id='rcont2'></td><td><label for='rel2'><b>Relation </b></label></td><td><input type='text' name='rel2' id='rel2'></td><td><input type='button' value='+' onclick='reference()'><td></tr>"
+                    document.getElementById("ref3").innerHTML = t;
+                }
+                if (clk3 == 2) {
+                    t = " <tr><td><label for='rname3'><b>Name</b></label></td> <td><input type='text' name='rname3' id='rname3'></td><td><label for='rcont3'><b>Contact </b></label></td><td><input type='text' name='rcont3' id='rcont3'></td><td><label for='rel3'><b>Relation </b></label></td><td><input type='text' name='rel3' id='rel3'></td><td><input type='button' value='+' onclick='reference()'><td></tr>"
+                    document.getElementById("ref4").innerHTML = t;
+                }
+                if (clk3 == 3) {
+                    t = " <tr><td><label for='rname4'><b>Name</b></label></td> <td><input type='text' name='rname4' id='rname4'></td><td><label for='rcont4'><b>Contact </b></label></td><td><input type='text' name='rcont4' id='rcont4'></td><td><label for='rel4'><b>Relation </b></label></td><td><input type='text' name='rel4' id='rel4'></td><td><input type='button' value='+' onclick='reference()'><td></tr>"
+                    document.getElementById("ref5").innerHTML = t;
+                }
+                clk3 = clk3 + 1;
+            }
+
+            function check_validate_lan(x) {
+
+                var id=x.id;
+                var lang=document.getElementById(id);
+                var langname=x.value;
+                if(lang.checked==true){
+                    document.getElementById(id).disabled=true;
+                    var element = document.getElementsByClassName(langname);
+                    for(let i=0;i<element.length;i++){
+                        if(element[i].disabled==true){
+                            element[i].disabled=false;
+                        }
+                    }
+                }
+
+
+            }
+
+
+            function check_validate_tech(x){
+                let t_id=x.id;
+                var tech=document.getElementById(t_id);
+                var techname=x.value;
+                if(tech.checked==true){
+                    document.getElementById(t_id).disabled=true;
+                    let t_element=document.getElementsByName(techname);
+                    for(let i=0;i<t_element.length;i++){
+                        if(t_element[i].disabled==true){
+                            t_element[i].disabled=false;
+                        }
+                    }
+                }
+            }
+
+
+            function changeevent(x){
+                city1=document.getElementById("city");
+                var state=x.value;
+                console.log(state);
+                fetch('/task6_state?state='+state+'').then((response)=>{
+                    return response.json();
+                }).then((responsedata)=>{
+                    var str="";
+                    for( let i=0;i<responsedata.length;i++){
+                        str+="<option value"+responsedata[i]+">"+responsedata[i]+"</option>";
+
+                    }
+                    console.log(str)
+                    data=str['data']
+                    city1.innerHTML=str;
+                })
+            
+            }
+
+
+        </script>
+        </center>
+    </div>
+</body>
+
+</html>

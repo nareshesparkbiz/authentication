@@ -1,0 +1,422 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>naresh TicTacToe</title>
+    <style>
+        tr,td{
+            padding: 40px;
+            border: 2px solid black;
+            border-top: hidden;
+            border-left: hidden;
+            border-right: hidden;
+            border-bottom: hidden;
+            border-collapse: collapse;
+            background-color: chartreuse;
+            
+        }
+        table{
+            position:static;
+        }
+        td:hover{
+            background-color: greenyellow;
+        }
+        h1{
+            border: 2px solid blue;
+            text-align: center;
+        }
+        /* p{
+            border: 2px solid green;
+            text-align: center;
+        } */
+        div{
+            border: 3px double royalblue;
+            text-align: center;
+            margin: 50px;
+            padding: 50px;
+            padding-left: 500px;
+            
+        }
+        h2{
+            border: 2px double red;
+            text-align: center;
+            text-decoration: underline;
+        }
+        #O{
+            border: 2px inset blueviolet;
+
+        }
+        #X{
+            border: 2px inset blueviolet;
+
+        }
+        .home_tag{
+        background-color: #174F2A;
+         width: 300px;
+        height: 30px;
+        color:  #ffffff;
+       padding: 20 25px;
+       border-radius: 10px;
+        text-decoration: none;
+       }
+    </style>
+</head>
+<body>
+    <header><center><div><a class="home_tag"href="http://localhost:9002/tasklist">Back To Task Page</a></div></center></header>
+    
+    <center>
+
+   <h1>TIC TAC TOE GAME </h1>
+   <h2 id="turn"></h2>
+   <p style="border: 2px solid red; text-align: center;"><strong>START GAME</strong> </p>
+   
+   <div>
+<table >
+    <tr>
+        <td id="1" onclick="nareshO(this,this.id)" oncontextmenu="nareshX(this,this.id)" class="cl"></td>
+        <td id="2" onclick="nareshO(this,this.id)" oncontextmenu="nareshX(this,this.id)" class="cl"></td>
+        <td id="3" onclick="nareshO(this,this.id)" oncontextmenu="nareshX(this,this.id)" class="cl"></td>
+    </tr>
+    <tr>
+        <td id="4" onclick="nareshO(this,this.id)" oncontextmenu="nareshX(this,this.id)" class="cl"></td>
+        <td id="5" onclick="nareshO(this,this.id)" oncontextmenu="nareshX(this,this.id)"  class="cl"></td>
+        <td id="6" onclick="nareshO(this,this.id)" oncontextmenu="nareshX(this,this.id)" class="cl"></td>
+
+    </tr>
+    <tr>
+        <td id="7" onclick="nareshO(this,this.id)" oncontextmenu="nareshX(this,this.id)" class="cl"></td>
+        <td id="8" onclick="nareshO(this,this.id)" oncontextmenu="nareshX(this,this.id)" class="cl"></td>
+        <td id="9" onclick="nareshO(this,this.id)" oncontextmenu="nareshX(this,this.id)" class="cl"></td>
+
+    </tr>
+                 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;LEFT CLICK = "O"<BR></BR>
+                 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; RIGHT CLICK = "x"
+</table>
+
+
+</div></center>
+<br>
+ Player O Wins :<p id="O" style="font-size: large;font-weight: bold;"></p>
+ Player X Wins : <p id="X" style="font-size: large;font-weight: bold;"></p>
+
+<script>
+        let naresh_ele1 = document.getElementById("1");
+
+naresh_ele1.addEventListener('contextmenu', (ev)=>{
+console.log("Right click disabled");
+ev.preventDefault();
+});
+let naresh_ele2 = document.getElementById("2");
+
+naresh_ele2.addEventListener('contextmenu', (ev)=>{
+console.log("Right click disabled");
+ev.preventDefault();
+});
+let naresh_ele3 = document.getElementById("3");
+
+naresh_ele3.addEventListener('contextmenu', (ev)=>{
+console.log("Right click disabled");
+ev.preventDefault();
+});
+let naresh_ele4 = document.getElementById("4");
+
+naresh_ele4.addEventListener('contextmenu', (ev)=>{
+console.log("Right click disabled");
+ev.preventDefault();
+});
+let naresh_ele5 = document.getElementById("5");
+
+naresh_ele5.addEventListener('contextmenu', (ev)=>{
+console.log("Right click disabled");
+ev.preventDefault();
+});
+let naresh_ele6 = document.getElementById("6");
+
+naresh_ele6.addEventListener('contextmenu', (ev)=>{
+console.log("Right click disabled");
+ev.preventDefault();
+});
+let naresh_ele7 = document.getElementById("7");
+
+naresh_ele7.addEventListener('contextmenu', (ev)=>{
+console.log("Right click disabled");
+ev.preventDefault();
+});
+let naresh_ele8 = document.getElementById("8");
+
+naresh_ele8.addEventListener('contextmenu', (ev)=>{
+console.log("Right click disabled");
+ev.preventDefault();
+});
+let naresh_ele9 = document.getElementById("9");
+
+naresh_ele9.addEventListener('contextmenu', (ev)=>{
+console.log("Right click disabled");
+ev.preventDefault();
+});
+
+
+      var count_naresh=0;
+      var count_nareshX=0;
+
+      
+//    var naresh=document.getElementsByClassName("cl").addEventListener("click",naresh1);
+    function nareshO(x,id){
+        if(document.getElementById(id).innerHTML=="X" || document.getElementById(id).innerHTML=="O"){return 0;}
+        var a_naresh=parseInt(x.id);
+        for(naresh_i=1;naresh_i<10;naresh_i++){
+            if(a_naresh==naresh_i){
+                x.innerHTML="O";
+                document.getElementById("turn").innerHTML="Player X turn..";
+
+            }
+        }
+       
+        naresh_winO();
+        // document.getElementById("id1").innerHTML="O";
+        // document.getElementById("id2").innerHTML="O";
+        // document.getElementById("id3").innerHTML="O";
+        // document.getElementById("id4").innerHTML="O";
+        // document.getElementById("id5").innerHTML="O";
+        // document.getElementById("id6").innerHTML="O";
+        // document.getElementById("id7").innerHTML="O";
+        // document.getElementById("id8").innerHTML="O";
+        // document.getElementById("id9").innerHTML="O";
+    }
+
+    function naresh_winO(){
+     
+        var naresh_1=document.getElementById("1").innerHTML;
+        var naresh_2=document.getElementById("2").innerHTML;
+
+        var naresh_3=document.getElementById("3").innerHTML;
+
+        var naresh_4=document.getElementById("4").innerHTML;
+
+        var naresh_5=document.getElementById("5").innerHTML;
+
+        var naresh_6=document.getElementById("6").innerHTML;
+
+        var naresh_7=document.getElementById("7").innerHTML;
+
+        var naresh_8=document.getElementById("8").innerHTML;
+
+        var naresh_9=document.getElementById("9").innerHTML;
+
+        if(naresh_1=="O" && naresh_5=="O" && naresh_9=="O"){
+            alert("Player O is Winner")
+            nareshd();
+            document.getElementById("turn").innerHTML="Player O turn..";
+            count_naresh=count_naresh+1;
+            document.getElementById("O").innerHTML=count_naresh;
+           
+            
+        }
+        if(naresh_1=="O" && naresh_4=="O" && naresh_7=="O"){
+            alert("Player O is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player O turn..";
+            count_naresh=count_naresh+1;
+            document.getElementById("O").innerHTML=count_naresh;
+        }
+        if(naresh_1=="O" && naresh_2=="O" && naresh_3=="O"){
+            alert("Player O is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player O turn..";
+            count_naresh=count_naresh+1;
+            document.getElementById("O").innerHTML=count_naresh;
+        }
+        if(naresh_3=="O" && naresh_6=="O" && naresh_9=="O"){
+            alert("Player O is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player O turn..";
+
+            count_naresh=count_naresh+1;
+            document.getElementById("O").innerHTML=count_naresh;
+        }
+        if(naresh_7=="O" && naresh_8=="O" && naresh_9=="O"){
+            alert("Player O is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player O turn..";
+            count_naresh=count_naresh+1;
+            document.getElementById("O").innerHTML=count_naresh;
+        }
+        if(naresh_4=="O" && naresh_5=="O" && naresh_6=="O"){
+            alert("Player O is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player O turn..";
+            count_naresh=count_naresh+1;
+            document.getElementById("O").innerHTML=count_naresh;
+        }
+        if(naresh_3=="O" && naresh_5=="O" && naresh_7=="O"){
+            alert("Player O is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player O turn..";
+            count_naresh=count_naresh+1;
+            document.getElementById("O").innerHTML=count_naresh;
+        }
+        if(naresh_2=="O" && naresh_5=="O" && naresh_8=="O"){
+            alert("Player O is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player O turn..";
+            count_naresh=count_naresh+1;
+            document.getElementById("O").innerHTML=count_naresh;
+        }
+        else{
+            if(naresh_1!="" && naresh_2!="" && naresh_3!=""&& naresh_4!="" && naresh_5!="" && naresh_6!="" && naresh_7!="" && naresh_8!="" && naresh_9!=""){
+                alert("Game Over");
+                nareshd();
+            }
+        }
+       
+    }
+
+    function nareshX(x,id){
+        if(document.getElementById(id).innerHTML=="X" || document.getElementById(id).innerHTML=="O"){return 0;}
+       
+        var a_naresh=parseInt(x.id);
+        for(i=1;i<10;i++){
+           
+            if(a_naresh==i){
+
+                x.innerHTML="X";
+                document.getElementById("turn").innerHTML="Player O turn..";
+            }
+        }
+
+       
+        naresh_winX();
+       
+    }
+
+    function naresh_winX(){
+        var naresh_1=document.getElementById("1").innerHTML;
+        var naresh_2=document.getElementById("2").innerHTML;
+        var naresh_3=document.getElementById("3").innerHTML;
+        var naresh_4=document.getElementById("4").innerHTML;
+        var naresh_5=document.getElementById("5").innerHTML;
+        var naresh_6=document.getElementById("6").innerHTML;
+        var naresh_7=document.getElementById("7").innerHTML;
+        var naresh_8=document.getElementById("8").innerHTML;
+        var naresh_9=document.getElementById("9").innerHTML;
+
+        if(naresh_1=="X" && naresh_5=="X" && naresh_9=="X"){
+            alert("Player X is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player X turn..";
+            count_nareshX=count_nareshX+1;
+            document.getElementById("X").innerHTML=count_nareshX;
+        }
+        else{
+        if(naresh_1=="X" && naresh_4=="X" && naresh_7=="X"){
+            alert("Player X is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player X turn..";
+
+            count_nareshX=count_nareshX+1;
+            document.getElementById("X").innerHTML=count_nareshX;
+        }
+        else{
+
+        if(naresh_1=="X" && naresh_2=="X" && naresh_3=="X"){
+            alert("Player X is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player X turn..";
+
+            count_nareshX=count_nareshX+1;
+            document.getElementById("X").innerHTML=count_nareshX;
+        }
+        else{
+        if(naresh_3=="X" && naresh_6=="X" && naresh_9=="X"){
+            alert("Player X is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player X turn..";
+
+            count_nareshX=count_nareshX+1;
+            document.getElementById("X").innerHTML=count_nareshX;
+        
+
+        }
+        else{
+        if(naresh_7=="X" && naresh_8=="X" && naresh_9=="X"){
+            alert("Player X is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player X turn..";
+
+            count_nareshX=count_nareshX+1;
+            document.getElementById("X").innerHTML=count_nareshX;
+        }
+        else{
+        if(naresh_4=="X" && naresh_5=="X" && naresh_6=="X"){
+            alert("Player X is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player X turn..";
+
+            count_nareshX=count_nareshX+1;
+            document.getElementById("X").innerHTML=count_nareshX;
+        }
+        else{
+        if(naresh_3=="X" && naresh_5=="X" && naresh_7=="X"){
+            alert("Player X is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player X turn..";
+
+            count_nareshX=count_nareshX+1;
+            document.getElementById("X").innerHTML=count_nareshX;
+        }
+    else{
+        if(naresh_2=="X" && naresh_5=="X" && naresh_8=="X"){
+            alert("Player X is Winner");
+            nareshd();
+            document.getElementById("turn").innerHTML="Player X turn..";
+
+            count_nareshX=count_nareshX+1;
+            document.getElementById("X").innerHTML=count_nareshX;
+
+        }
+        else{
+            if(naresh_1!="" && naresh_2!="" && naresh_3!=""&& naresh_4!="" && naresh_5!="" && naresh_6!="" && naresh_7!="" && naresh_8!="" && naresh_9!=""){
+                alert("Game Over");
+                nareshd();
+            }
+        }
+    }}}}}}}
+       
+    }
+
+
+    function nareshd(){
+        document.getElementById("1").innerHTML=null;
+        document.getElementById("2").innerHTML=null;
+        document.getElementById("3").innerHTML=null;
+        document.getElementById("4").innerHTML=null;
+        document.getElementById("5").innerHTML=null;
+        document.getElementById("6").innerHTML=null;
+        document.getElementById("7").innerHTML=null;
+        document.getElementById("8").innerHTML=null;
+        document.getElementById("9").innerHTML=null;
+
+      
+        
+    }
+    // countO(){
+        
+    //     count+=1;
+    //     document.write("O Winner"+count);
+    // }
+
+
+    
+
+    
+
+
+
+    //  function naresh1(){
+    //     naresh.forEach(function (element) {
+    //   alert(element.innerHTML)
+    //  }
+</script>
+</body>
+</html>

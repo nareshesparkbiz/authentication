@@ -1,0 +1,516 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            padding-right: 50px;
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        #container1 {
+            margin-right: 300px;
+
+        }
+
+        tr,
+        td {
+            padding: 5px;
+        }
+        body{
+            background-image: url("https://media.istockphoto.com/id/1217031480/photo/black-man-hands-signing-document-on-a-desk-at-home.webp?s=1024x1024&w=is&k=20&c=-KMPSeDZ7kM_UAncmd1DpZ87iG-bmL9sA7dxxAUBLQs=");
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+        #id123{
+            background-color: rgb(252, 246, 238);
+            opacity: 0.5;
+           
+        }
+        #tbl1:hover{opacity:1;}
+        .home_tag{
+        background-color: #174F2A;
+         width: 300px;
+        height: 30px;
+        color:  #ffffff;
+       padding: 20 25px;
+       border-radius: 10px;
+        text-decoration: none;
+       }
+    </style>
+</head>
+
+<body>
+    <header><center><div><a class="home_tag"href="http://localhost:9002/tasklist">Back To Task Page</a></div></center></header>
+   <div id="id123">
+    <h1>Job Application Form </h1>
+    <form action="">
+        <fieldset>
+            <legend>Basic Detail </legend>
+            <table id="tbl1">
+
+                <tr>
+                    <td><b><label for="name1">First Name</label></b></td>
+                    <td><input type="text" name="name1" id="name1" placeholder="Enter Your name"></td>
+                    <td></td>
+                    <td><b><label for="name2">Last Name </label></b></td>
+                    <td><input type="text" name="name2" id="name2" placeholder="Enter your Surname"></td>
+                </tr>
+                <tr>
+                    <td><label for="des1"><b>Designation</b></label></td>
+                    <td><input type="text" name="des1" id="des1"></td>
+                    <td></td>
+                    <td><label for="add1"><b>Address 1</b></label></td>
+                    <td><input type="text" name="add1" id="add1"></td>
+                </tr>
+                <tr>
+                    <td><label for="email1"><b>Email</b></label></td>
+                    <td><input type="email" name="email1" id="email1"></td>
+                    <td></td>
+                    <td><label for="add2"><b>Address 2</b></label></td>
+                    <td><input type="text" name="add2" id="add2"></td>
+                </tr>
+                <tr>
+                    <td><label for="con1"><b>Contact</b></label></td>
+                    <td><input type="tel" name="con1" id="con1"></td>
+                    <td></td>
+                    <td><label for="city"><b>City</b></label></td>
+                    <td><input type="text" name="city" id="city"></td>
+                </tr>
+                <tr>
+                    <td><b><label for="gen1">Gender</label></b></td>
+                    <td><input type="radio" name="gen1" id="gen"><label for="gen">Male</label>
+                        <input type="radio" name="gen1" id="gen2"><label for="gen2">Female</label>
+                    </td>
+                    <td></td>
+                    <td><b><label for="state">State</label></b></td>
+                    <td><select name="stat1" id="stat1">
+                            <option value="s1">Gujarat</option>
+                            <option value="s1">Maharastra</option>
+                            <option value="s1">West Bengal</option>
+                            <option value="s1">Delhi</option>
+                            <option value="s1">Rajasthan</option>
+                            <option value="s1">Madhya Pradesh</option>
+                            <option value="s1">Karnataka</option>
+                            <option value="s1">Jammu & Kashmir</option>
+                            <option value="s1">Uttarakhand</option>
+                            <option value="s1">Tamil Nadu</option>
+                            <option value="s1">
+                                Arunachal Pradesh
+                            </option>
+
+
+                        </select></td>
+
+                </tr>
+                <tr>
+                    <td><b><label for="zip1">Zipcode</label></b></td>
+                    <td><input type="text" name="zip1" id="zip1"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><b><label for="relation">Relationship Status</label></b></td>
+                    <td><select name="rel" id="rel1">
+                            <option value="r1">Single</option>
+                            <option value="r2">Married</option>
+                        </select></td>
+                    <td></td>
+                    <td><b><label for="dob">Date Of Birth</label></b></td>
+                    <td><input type="date" name="dob" id="dob1"></td>
+
+                </tr>
+
+            </table>
+        </fieldset>
+        <br><br><br>
+        <fieldset>
+            <legend>Education Detail</legend>
+
+            <tr>
+                <td colspan="6"><b>SSC result </b></td>
+
+            </tr><br><br>
+            <tr>
+                <td><label for="bd1"><b>Name Of Board</b></label></td>
+                <td><input type="text" name="bd1" id="bd1"></td>
+                <td><label for="year"><b>Passing Year</b></label></td>
+                <td><input type="text" name="year" id="year"></td>
+                <td><label for="percen"><b>Percentage</b></label></td>
+                <td><input type="text" name="percen" id="percen"></td>
+                <td><input type="button" value="+" onclick="naresh_click()"></td>
+            </tr><br>
+            <hr>
+            <div id="p1"></div>
+            <div id="p2"></div>
+            <div id="p3"></div>
+
+        </fieldset><br><br><br>
+
+        <fieldset>
+            <table id="tbl3">
+
+                <legend>Work Experience</legend>
+                <tr id="id1">
+                    <td><label for="comp1"><b>Company name</b></label></td>
+                    <td><input type="text" name="comp1" id="comp1"></td>
+                    <td><label for="des1"><b>Designation</b></label></td>
+                    <td><input type="text" name="des1" id="des1"></td>
+                    <td><label for="start1"><b>From</b></label></td>
+                    <td><input type="date" name="start1" id="start1"></td>
+                    <td><label for="end1"><b>To</b></label></td>
+                    <td><input type="date" name="end1" id="end1"></td>
+                    <td><input type="button" value="'+" onclick="work()"></td>
+                </tr>
+                <tr id="id2"></tr>
+                <tr id="id3"></tr>
+
+            </table>
+        </fieldset><br><br><br>
+        <div id="container">
+            <div id="container1">
+                <fieldset>
+                    <legend>Language Known</legend>
+                    <table>
+                        <tr>
+                            <td><input type="checkbox" name="hindi" id="hindi" onclick="check_validate()"></td>
+                            <td><label for="h2">Hindi</label></td>
+                            <td><input type="checkbox" name="hindi" id="h1" disabled></td>
+                            <td><label for="h1">Read</label></td>
+                            <td><input type="checkbox" name="hindi" id="h2" disabled></td>
+                            <td><label for="h2">Write</label></td>
+                            <td><input type="checkbox" name="hindi" id="h3" disabled></td>
+                            <td><label for="h3">Speak</label></td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="english" id="english" onclick="check_validate()"></td>
+                            <td><label for="english">English</label></td>
+                            <td><input type="checkbox" name="english" id="e1" disabled></td>
+                            <td><label for="e1">Read</label></td>
+                            <td><input type="checkbox" name="english" id="e2" disabled></td>
+                            <td><label for="e2">Write</label></td>
+                            <td><input type="checkbox" name="english" id="e3" disabled></td>
+                            <td><label for="e3">Speak</label></td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="gujarati" id="gujarati" onclick="check_validate()"></td>
+                            <td><label for="gujarati">Gujarati</label></td>
+                            <td><input type="checkbox" name="gujarati" id="g1" disabled></td>
+                            <td><label for="g1">Read</label></td>
+                            <td><input type="checkbox" name="english" id="e2" disabled></td>
+                            <td><label for="e2">Write</label></td>
+                            <td><input type="checkbox" name="english" id="e3" disabled></td>
+                            <td><label for="e3">Speak</label></td>
+
+                        </tr>
+
+                    </table>
+                </fieldset>
+            </div>
+
+            <div id="container2">
+                <fieldset>
+                    <legend>
+                        Technologies You known
+                    </legend>
+                    <table>
+                        <tr>
+                            <td><input type="checkbox" name="php" id="php" onclick="check_validate()"></td>
+                            <td><label for="php">PHP</label></td>
+                            <td><input type="radio" name="php" id="p11" disabled></td>
+                            <td><label for="p11">Beginner</label></td>
+
+                            <td><input type="radio" name="php" id="p22"  disabled></td>
+                            <td><label for="p22">Mediator</label></td>
+                            <td><input type="radio" name="php" id="p33"  disabled></td>
+                            <td><label for="p33">Expert</label></td>
+
+
+                        </tr>
+
+                        <tr>
+                            <td><input type="checkbox" name="mysql" id="mysql" onclick="check_validate()"></td>
+                            <td><label for="mysql">MySql</label></td>
+                            <td><input type="radio" name="mysql" id="m1"  disabled></td>
+                            <td><label for="m1">Beginner</label></td>
+
+                            <td><input type="radio" name="mysql" id="m2"  disabled></td>
+                            <td><label for="m2">Mediator</label></td>
+                            <td><input type="radio" name="mysql" id="m3"  disabled></td>
+                            <td><label for="m3">Expert</label></td>
+
+
+                        </tr>
+
+                        <tr>
+                            <td><input type="checkbox" name="laravel" id="laravel" onclick="check_validate()"></td>
+                            <td><label for="laravel">Laravel</label></td>
+                            <td><input type="radio" name="laravel" id="l1" disabled></td>
+                            <td><label for="l1">Beginner</label></td>
+
+                            <td><input type="radio" name="laravel" id="l2" disabled></td>
+                            <td><label for="l2">Mediator</label></td>
+                            <td><input type="radio" name="laravel" id="l3" disabled></td>
+                            <td><label for="l3">Expert</label></td>
+
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="oracel" id="oracle" onclick="check_validate()"></td>
+                            <td><label for="oracel">Oracel</label></td>
+                            <td><input type="radio" name="oracel" id="o1" disabled></td>
+                            <td><label for="o1">Beginner</label></td>
+
+                            <td><input type="radio" name="oracel" id="o2" disabled></td>
+                            <td><label for="o2">Mediator</label></td>
+                            <td><input type="radio" name="oracel" id="o3" disabled></td>
+                            <td><label for="o3">Expert</label></td>
+
+
+                        </tr>
+                    </table>
+                </fieldset>
+            </div>
+        </div>
+        <fieldset>
+            <table id="tbl5">
+
+                <legend>References Contact </legend>
+                <tr>
+                    <td><label for="rname1"><b>Name</b></label></td>
+                    <td><input type="text " name="rname1" id="rname1"></td>
+                    <td><label for="rcont1"><b>Contact </b></label></td>
+                    <td><input type="text" name="rcont1" id="rcont1"></td>
+                    <td><label for="rel1"><b>Relation </b></label></td>
+                    <td><input type="text " name="rcont1" id="rcont1"></td>
+                    <td><input type="button" value="+" onclick="reference()"></td>
+                </tr>
+                <tr id="ref3"></tr>
+                <tr id="ref4"></tr>
+
+                <tr id="ref5"></tr>
+
+
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                Preferences
+            </legend>
+            <table>
+                <tr>
+                    <td><label for="pref1"><b>Prefered location </b></label></td>
+                    <td><select name="pref1" id="pref1">
+                            <option value="p1">Ahmedabad</option>
+                            <option value="p2">Baroda</option>
+                            <option value="p3">Rajkot</option>
+                            <option value="p4">Pune</option>
+                        </select></td>
+                    <td><label for="notice"><b>Notice Period</b></label></td>
+                    <td><input type="text" name="notice" id="notice"></td>
+                    <td><label for="dep1"><b>Department</b></label></td>
+                    <td><select name="dep1" id="dep1">
+                            <option value="d1">Development</option>
+                            <option value="d2">Design marketing</option>
+                            <option value="d3">Testing</option>
+                            <option value="d4">Devops</option>
+
+
+                        </select></td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><label for="expec1"><b>Expected CTC</b></label></td>
+                    <td><input type="text " name="expec1" id="expec1"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><label for="crctc1"><b>Current CTC </b></label>
+                    </td>
+                    <td><input type="text " name="crctc1" id="crctc1"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+        <input type="submit" value="submit" style="margin: left 50px;margin: right 10px;">
+    </form>
+
+
+
+
+
+    <script>
+        var s = "";
+        var clk = 1;
+        var clk1 = 1;
+    
+        function naresh_click() {
+            if (clk == 1) {
+                s += "<tr><td colspan=6><b>HSC /Diploma Result</b></td></tr> <br> <br><tr><td><label for='bd2'><b>Name Of Board</b></label></td><td>&nbsp;&nbsp;&nbsp;<input type='text' name='bd2' id='bd2'></td><td><label for='year1'><b>Passing Year</b></label></td><td><input type='text' name='year1' id='year1'></td><td><label for='percen1'><b>Percentage</b></label></td><td><input type='text' name='percen1' id='percen1'></td><td><input type='button' value='+' onclick='naresh_click()'></td></tr><br><hr>";
+                document.getElementById('p1').innerHTML = s;
+            }
+            if (clk == 2) {
+                s += "<tr><td colspan=6><b>Bachlour Degree</b></td></tr><tr><br><br>  <td><label for='bd3'><b>Course name </b></label></td><td><input type='text' name='bd3' id='bd3'></td><td><label for='u1'><b>University </b></td><td><input type='text' name='u1' id='u1'></td><td><label for='year2'><b>Passing Year </b></label></td><td><input type='text' name='year2' id='year2'></td><td><label for='percen2'><b>Percentage </b></label></td><td><input type='text' name='percen2' id='percen2'></td><td><input type='button' value='+' onclick='naresh_click()'></td></tr><br><hr>";
+                document.getElementById('p2').innerHTML = s;
+            }
+            if (clk == 3) {
+                s += "<tr><td colspan=6><b>Master Degree</b></td></tr><tr><br><br>  <td><label for='bd4'><b>Course name </b></label></td><td><input type='text' name='bd4' id='bd4'></td><td><label for='u2'><b>University </b></td><td><input type='text' name='u2' id='u2'></td><td><label for='year3'><b>Passing Year </b></label></td><td><input type='text' name='year3' id='year3'></td><td><label for='percen3'><b>Percentage </b></label></td><td><input type='text' name='percen3' id='percen3'></td><td><input type='button' value='+' onclick='naresh_click()'></td></tr><br>";
+                document.getElementById('p3').innerHTML = s;
+            }
+            if (clk > 3) {
+                return false;
+            }
+            s = "";
+            clk = clk + 1;
+
+
+            // for(i=1;i<3;i++){
+            //     if(i%2==0){
+            //     s+="<tr>";
+            //     for(j=1;j<=3;j++){
+            //         s+=" <td><label for='bd"+j+"'><b>Name Of Board</b></label></td><td><input type='text' name='bd"+j+"'id='bd"+j+"'></td>"
+            //     }}
+            //     else{
+            //         s+="<tr><td colspan=6>"+a+"</td></tr>";
+            //     }
+            // }
+        }
+
+        function work() {
+            if (clk1 == 1) {
+                s = " <td><label for='comp2'><b>Company name</b></label></td><td><input type='text' name='comp2' id='comp2'></td><td><label for='des2'><b>Designation</b></label></td><td><input type='text' name='des2' id='des2'></td><td><label for='start2'><b>From</b></label></td> <td><input type='date' name='start2' id='start2'></td><td><label for='end2'><b>To</b></label></td><td><input type='date' name='end2' id='end2'></td><td><input type='button' value='+' onclick='work()'></td>"
+                document.getElementById('id2').innerHTML = s;
+            }
+            if (clk1 == 2) {
+                s = " <td><label for='comp3'><b>Company name</b></label></td><td><input type='text' name='comp3' id='comp3'></td><td><label for='des3'><b>Designation</b></label></td><td><input type='text' name='des3' id='des2'></td><td><label for='start3'><b>From</b></label></td> <td><input type='date' name='start3' id='start3'></td><td><label for='end3'><b>To</b></label></td><td><input type='date' name='end3' id='end3'></td><td><input type='button' value='+' onclick='work()'></td>"
+                document.getElementById('id3').innerHTML = s;
+            }
+            else {
+                return false;
+            }
+
+            s = "";
+            clk1 = clk1 + 1;
+        }
+
+        var clk3 = 1;
+        function reference() {
+            var t = "";
+            if (clk3 == 1) {
+                t = " <tr><td><label for='rname2'><b>Name</b></label></td> <td><input type='text' name='rname2' id='rname2'></td><td><label for='rcont2'><b>Contact </b></label></td><td><input type='text' name='rcont2' id='rcont2'></td><td><label for='rel2'><b>Relation </b></label></td><td><input type='text' name='rcont2' id='rcont2'></td><td><input type='button' value='+' onclick='reference()'><td></tr>"
+                document.getElementById("ref3").innerHTML = t;
+            }
+            if (clk3 == 2) {
+                t = " <tr><td><label for='rname2'><b>Name</b></label></td> <td><input type='text' name='rname2' id='rname2'></td><td><label for='rcont2'><b>Contact </b></label></td><td><input type='text' name='rcont2' id='rcont2'></td><td><label for='rel2Oracel	'><b>Relation </b></label></td><td><input type='text' name='rcont2' id='rcont2'></td><td><input type='button' value='+' onclick='reference()'><td></tr>"
+                document.getElementById("ref4").innerHTML = t;
+            }
+            if (clk3 == 3) {
+                t = " <tr><td><label for='rname2'><b>Name</b></label></td> <td><input type='text' name='rname2' id='rname2'></td><td><label for='rcont2'><b>Contact </b></label></td><td><input type='text' name='rcont2' id='rcont2'></td><td><label for='rel2'><b>Relation </b></label></td><td><input type='text' name='rcont2' id='rcont2'></td><td><input type='button' value='+' onclick='reference()'><td></tr>"
+                document.getElementById("ref5").innerHTML = t;
+            }
+            clk3 = clk3 + 1;
+        }
+        function check_validate() {
+            var p=document.getElementById("php");
+            var h = document.getElementById("hindi");
+            var e = document.getElementById("english");
+            var g = document.getElementById("gujarati");
+            var l=document.getElementById("laravel");
+            var o=document.getElementById("oracle");
+            var m=document.getElementById("mysql");
+          
+            if (p.checked == true) {
+                document.getElementById("php").disabled = true;
+                document.getElementById("p11").disabled = false;
+                document.getElementById("p22").disabled = false;
+
+                // document.getElementById("h2").disabled=false;
+
+                document.getElementById("p33").disabled = false;
+
+
+            }
+            if (l.checked == true) {
+                document.getElementById("laravel").disabled = true;
+                document.getElementById("l1").disabled = false;
+                document.getElementById("l2").disabled = false;
+
+                // document.getElementById("h2").disabled=false;
+
+                document.getElementById("l3").disabled = false;
+
+
+            }
+            if (o.checked == true) {
+                document.getElementById("oracle").disabled = true;
+                document.getElementById("o1").disabled = false;
+                document.getElementById("o2").disabled = false;
+
+                // document.getElementById("h2").disabled=false;
+
+                document.getElementById("o3").disabled = false;
+
+
+            }
+            if (m.checked == true) {
+                document.getElementById("mysql").disabled = true;
+                document.getElementById("m1").disabled = false;
+                document.getElementById("m2").disabled = false;
+
+                // document.getElementById("h2").disabled=false;
+
+                document.getElementById("m3").disabled = false;
+
+
+            }
+                   document.getElementById("h1").disabled = false;
+                document.getElementById("h2").disabled = false;
+
+                // document.getElementById("h2").disabled=false;
+
+                document.getElementById("h3").disabled = false;
+
+
+            }
+            if (e.checked == true) {
+                document.getElementById("english").disabled = true;
+                document.getElementById("e1").disabled = false;
+                document.getElementById("e2").disabled = false;
+
+                // document.getElementById("h2").disabled=false;
+
+                document.getElementById("e3").disabled = false;
+
+
+        }
+        if (g.checked == true) {
+                document.getElementById("gujarati").disabled = true;
+                document.getElementById("g1").disabled = false;
+                document.getElementById("g2").disabled = false;
+
+                // document.getElementById("h2").disabled=false;
+
+                document.getElementById("g3").disabled = false;}
+
+
+    </script>
+    </div>
+</body>
+
+</html>

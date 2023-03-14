@@ -1,0 +1,163 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: fit-content;
+            /* display: flex;
+            flex-direction: row; */
+            border: 2px solid ;
+        }
+      
+       td{
+        background-color: bisque;
+        border-style: outset;
+       }
+       a{
+        
+        font-size: xx-large;
+        margin-left: 10px;
+       }
+       #record{
+        font-weight: bold;
+        font-size: large;
+        color: red;
+        font-style: normal;
+        text-decoration: underline;
+       }
+       .home_tag{
+        background-color: #174F2A;
+         width: 300px;
+        height: 30px;
+        color:  #ffffff;
+       padding: 20 25px;
+       border-radius: 10px;
+        text-decoration: none;
+       }
+
+       
+    </style>
+    
+</head>
+<body>
+    <header> <center><div><a class="home_tag"href="http://localhost:9002/tasklist">Back To Task Page</a></div></center>
+        <br><br></header>
+
+  <center>
+    <br><br>
+
+    <!-- search data from table  -->
+    <h1>Search Here</h1>
+    <p id="record">Total Records : <%=count_record%></p>
+    <form action="/searchdata">
+        <input type="search" placeholder="Search Here" name="search" value="<%=searched%>">
+        <select name="select1" id="select">
+            <option value="AND" name="AND">AND</option>
+            <option value="OR" name="OR">OR</option>
+
+        </select>
+      
+        <input type="submit" value="Go">
+
+    </form>
+
+
+    <!-- Data Table Shown -->
+<table border="2"><tr>
+    <th>Delimeters</th>
+    <th>Fields name</th>
+</tr>
+<tr>
+    <td>^</td>
+    <td>First Name</td>
+</tr>
+   <tr>
+    <td>$</td>
+    <td>Last Name</td>
+   </tr>
+   <tr>
+    <td>_</td>
+    <td>City</td>
+   </tr>
+   <tr>
+    <td>~</td>
+    <td>contact</td>
+   </tr>
+   <tr>
+    <td>/</td>
+    <td>College</td>
+   </tr>
+</table>
+    
+
+   <% for(let i=0;i<1;i++){ %>              
+      
+        <table border="1">
+            <tr>
+                <th>sid 
+                  
+                  
+                </th>
+
+
+                <th>first name
+                  </th>
+
+
+                <th>last name
+                  </th>
+
+
+
+            <th>contact
+              
+            </th>
+
+        <th>email
+            
+        </th>
+
+        <th>college
+            
+        </th>
+        <th>city
+           
+        
+        </th></tr>
+       
+            
+            <% for( let j=0;j<data.length;j++){ %>
+            <tr>
+                <td><%=data[j]['sid']%></td>
+                <td><%=data[j]['first_name']%></td>
+                <td><%=data[j]['last_name']%></td>
+                <td><%=data[j]['contact']%></td>
+                <td><%=data[j]['email']%></td>
+                <td><%=data[j]['college']%></td>
+                <td><%=data[j]['city']%></td>
+                </tr>
+           
+            <% } %>
+        
+           </table>
+        
+           <br><br>
+           <% } %>
+ 
+          
+          
+           
+       
+           
+
+        </div>
+          
+    </center>
+   
+  
+
+</body>
+</html>

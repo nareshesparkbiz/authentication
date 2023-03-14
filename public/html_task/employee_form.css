@@ -1,0 +1,22 @@
+fieldset{
+    background-color: aqua;
+}
+label{
+    font-size: large;
+}
+input.rad1{
+    background-color: brown;
+}
+input:hover{
+    background-color: coral;
+}
+
+.home_tag{
+    background-color: #174F2A;
+     width: 300px;
+    height: 30px;
+    color:  #ffffff;
+   padding: 20 25px;
+   border-radius: 10px;
+    text-decoration: none;
+   }

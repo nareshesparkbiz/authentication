@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css ">
+  
+</head>
+<body>
+    <div class="sitepage">
+        <header></header>
+        <div class="bodypage">
+            <div class="row">
+              
+            <div class="column11">
+                <div class="container">
+                    <div class="formpage">
+                        <div class="logo">
+                            <img src="/logo.svg" alt="logo">
+                        </div>
+                        <div class="head1"><h2>Welcome Back!</h2></div>
+                        <div class="container1">
+                            <form action="/login" method="post" >
+                              
+                                <label for="email" class="label1">Email</label>
+                                <div class="form1"><input type="email" name="email" id="email" onchange="validateemail()" >
+                                    <p id="email1"></p>
+                                </div>
+    
+                                <label for="pasw" class="label1">Password</label>
+                                <div class="form1"><input type="password" name="pasw" id="pasw" onchange="validate_password()" >
+                                    <p id="password1"></p></div>
+
+                                    <div class="container2">
+                                        <div class="column1"><p class="container2p">Forgot Password</p></div>
+                                        <div class="column2"><a href="/forgot_pass" class="container2a">Click Here</a></div>
+                                    </div>
+                                    <div class="submit1"><input type="submit" id="submit" value="Login" disabled  ></div>
+                                </form>
+                        
+                                
+                                <div class="container2">
+                                    <div class="column1"><p class="container2p">Don't have an account?</p></div>
+                                    <div class="column2"><a href="/register" class="container2a">Register</a></div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    </div>
+                    <div class="column12">  
+                        <div class="image1"><img src="/bottom-logo.png" alt="logo"></div>
+                </div> 
+                   
+                </div>
+                
+            </div>
+            <script src="/login_script.js"></script>
+</body>
+</html>

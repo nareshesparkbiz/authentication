@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            .home_tag{
+        background-color: #174F2A;
+         width: 300px;
+        height: 30px;
+        color:  #ffffff;
+       padding: 20 25px;
+       border-radius: 10px;
+        text-decoration: none;
+       }
+       
+    </style>
+</head>
+<body>
+    <header> <center><div><a class="home_tag"href="http://localhost:9002/tasklist">Back To Task Page</a></div></center>
+        <br><br></header>
+
+    <h2>Combo box Generation</h2>
+
+    <div>
+        <input type="text" name="search" id="search"><label><b>Enter combo name</b></label>
+    </div>
+<br><br>
+    <div><label>Result</label>
+        <select><%-resultdata.result%></select>
+</div>
+<br><br>
+<div><label>Gender</label>
+    <select><%-resultdata.gender%></select>
+</div>
+<br><br>
+<div><label>Subject : </label>
+    <%-resultdata.subject%>
+</div><br><br>
+<div><label>Relation Status</label>
+    <select><%-resultdata.relation%></select>
+</div><br><br>
+<div><label>Course</label>
+    <select><%-resultdata.course%></select>
+</div><br><br>
+
+<br><br>
+<div><label>College</label>
+    <select><%-resultdata.college%></select>
+</div><br><br>
+<div><label>Languages : </label>
+    <%-resultdata.languages%>
+</div><br><br>
+
+<div><label>Technologies : </label>
+    <%-resultdata.technologies%>
+</div><br><br>
+
+<div><label>Designation</label>
+    <select><%-resultdata.designation%></select>
+</div>
+</body>
+</html>

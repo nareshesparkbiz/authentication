@@ -1,0 +1,139 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: fit-content;
+            /* display: flex;
+            flex-direction: row; */
+            border: 2px solid ;
+        }
+        #container:visited{
+            background-color: rgb(247, 24, 80);
+        }
+       td{
+        background-color: bisque;
+        border-style: outset;
+       }
+       a{
+        
+        font-size: larger;
+        margin-left: 10px;
+       }
+       .home_tag{
+        background-color: #174F2A;
+         width: 300px;
+        height: 30px;
+        color:  #ffffff;
+       padding: 20 25px;
+       border-radius: 10px;
+        text-decoration: none;
+       }
+       
+    </style>
+    
+</head>
+<body>
+  <center>
+    <header><div><a class="home_tag"href="http://localhost:9002/tasklist">Back To Task Page</a></div></header>
+    <br><br>
+
+    <!-- search data from table  -->
+    <h1>Search Here</h1>
+    <form action="/search">
+        <input type="search" placeholder="Search First name" name="fname">
+        <input type="search" placeholder="Search Last name" name="lname">
+
+        <input type="search" placeholder="Search email" name="email">
+
+        <input type="search" placeholder="Search Contact" name="contact">
+        <input type="submit" value="search">
+
+    </form>
+
+
+    <!-- Data Table Shown -->
+    
+    <h1><u>Page no. :- <%=a%></u></h1>
+   <% for(let i=0;i<1;i++){ %>              
+      
+        <table border="1">
+            <tr>
+                <th>sid 
+                  
+                    <a href="http://localhost:9002/task5?id=1&sort=sid&order=asc">↑</a>
+                    <a href="http://localhost:9002/task5?id=1&sort=sid&order=desc">↓</a>
+                </th>
+
+
+                <th>first name
+                    <a href="http://localhost:9002/task5?id=1&sort=first_name&order=asc">↑</a>
+                    <a href="http://localhost:9002/task5?id=1&sort=first_name&order=desc">↓</a></th>
+
+
+                <th>last name
+                    <a href="http://localhost:9002/task5?id=1&sort=last_name&order=asc">↑</a>
+                    <a href="http://localhost:9002/task5?id=1&sort=last_name&order=desc">↓</a></th>
+
+
+
+            <th>contact
+                <a href="http://localhost:9002/task5?id=1&sort=contact&order=asc">↑</a><a href="http://localhost:9002/task5?id=1&sort=contact&order=desc">↓</a>
+            </th>
+
+        <th>email
+            <a href="http://localhost:9002/task5?id=1&sort=email&order=asc">↑</a>
+            <a href="http://localhost:9002/task5?id=1&sort=email&order=desc">↓</a>
+        </th>
+
+        <th>college
+            <a href="http://localhost:9002/task5?id=1&sort=college&order=asc">↑</a>
+            <a href="http://localhost:9002/task5?id=1&sort=college&order=desc">↓</a>
+        </th>
+        <th>city
+            <a href="http://localhost:9002/task5?id=1&sort=city&order=asc">↑</a>
+            <a href="http://localhost:9002/task5?id=1&sort=city&order=desc">↓</a>
+        
+        </th></tr>
+       
+            
+            <% for( let j=0;j<data.length;j++){ %>
+            <tr>
+                <td><%=data[j]['sid']%></td>
+                <td><%=data[j]['first_name']%></td>
+                <td><%=data[j]['last_name']%></td>
+                <td><%=data[j]['contact']%></td>
+                <td><%=data[j]['email']%></td>
+                <td><%=data[j]['college']%></td>
+                <td><%=data[j]['city']%></td>
+                </tr>
+           
+            <% } %>
+        
+           </table>
+        
+           <br><br>
+           <% } %>
+
+         
+          
+           <div id="container">
+         <% for(let k=0;k<page_no ;k++){ %>
+            <a href="http://localhost:9002/task5?id=<%=k+1%>&sort=<%=c_sort%>&order=<%=order%>" ><b>Page <%=k+1%>|</b></a>
+          <%  } %>
+          
+           
+       
+           
+
+        </div>
+          
+    </center>
+   
+  
+
+</body>
+</html>

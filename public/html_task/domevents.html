@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table,tr,td{
+                border: 2px solid black;
+                border-collapse: collapse;
+                width: 30%;
+                height: 20px;
+                text-align: center;
+            }
+            .home_tag{
+        background-color: #174F2A;
+         width: 300px;
+        height: 30px;
+        color:  #ffffff;
+       padding: 20 25px;
+       border-radius: 10px;
+        text-decoration: none;
+       }
+        </style>
+
+    </head>
+    <body>
+        <header><center><div><a class="home_tag"href="http://localhost:9002/tasklist">Back To Task Page</a></div></center></header>
+        <table>
+            
+            <tr>
+                <td id="1" onmousedown="moused()">Mouse Down</td>
+                <td id="2" onmouseover="mouseo()">Mouse Over</td>
+                <td id="3" onmouseout="mouseou()">Mouse Out</td>
+            </tr>
+            <tr><td id="4" onclick="clickh()"><input type="button"></td>
+            <td id="5" ondblclick="dbclickh()">Mouse Double Click</td>
+        <td id="6" onmouseup="mouseu()">Mouse Up</td></tr>
+        <tr>
+            <td onkeydown="keyd()">KeyDown</td>
+            <td onkeypress="keypr()">KeyPress</td>
+            <td onkeyup="keyupp()">Key Up</td>
+        </tr>
+        </table>
+        <script>
+            function moused(){
+                document.getElementById('1').style.color="Blue";
+
+            }
+            function mouseo(){
+                document.getElementById('2').style.backgroundColor="yellow";
+            }
+            function mouseou(){
+               
+                document.getElementById('3').style.backgroundColor="green";
+            }
+            // document.getElementById("4").addEventListener(click,function(){
+            //     document.write("Hello Goodmorning");
+            // })
+
+            function clickh(){
+                document.getElementById('4').innerHTML="hello";
+            }
+            function dbclickh(){
+                document.getElementById('5').style.fontSize="50px"
+            }
+            
+            function mouseu(){
+                document.getElementById('6').style.color="green";
+            }
+            
+            function keyd(){
+                alert("You Press Key Down in Cell 7")
+
+            }
+            function keypr(){
+                alert("You press the key in Cell 8")
+            }
+            function keyupp(){
+                alert("You Press the Key Up in Cell 9")
+            }
+        </script>
+    </body>
+</html>
